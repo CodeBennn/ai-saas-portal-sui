@@ -27,6 +27,11 @@ const Header = () => {
         <span className="text-xl lg:text-4xl font-extrabold">
           TaiShang AI SaaS System
         </span>
+        {/* Navbar */}
+        <div className="flex items-center gap-4">
+          <Link href="/" className="text-xl hover:text-gray-300 transition-colors">Home</Link>
+          <Link href="/tasks" className="text-xl hover:text-gray-300 transition-colors">Tasks</Link>
+        </div>
         {/* Connect Button */}
         {walletAddress ? (
           <ConnectMenu walletAddress={walletAddress} suiName={suiName} />

@@ -26,7 +26,7 @@ const BasicContainer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [taskForm, setTaskForm] = useState({
     prompt: '',
-    task_type: '',
+    task_type: 'llm',
     fee: '',
     fee_unit: 'SUI'
   });
@@ -76,6 +76,7 @@ const BasicContainer = () => {
   }, []);
 
   const handleSubmitTask = async () => {
+    
     try {
       const response = await fetch('https://ai-saas.deno.dev/add_task', {
         method: 'POST',
@@ -87,8 +88,11 @@ const BasicContainer = () => {
           ...taskForm
         }),
       });
-
-      if (!response.ok) throw new Error('Failed to submit task');
+      console.log(JSON.stringify({
+          user: walletAddress,
+          ...taskForm
+        }));
+      if (!response.ok) throw new Error('Failed to submit task' + response);
       
       toast.success('Task submitted successfully!');
       setIsModalOpen(false);
@@ -97,7 +101,10 @@ const BasicContainer = () => {
       setUnsolvedTasks(data);
     } catch (error) {
       console.error('Error submitting task:', error);
-      toast.error('Failed to submit task');
+      toast.error('Failed to submit task' + JSON.stringify({
+        user: walletAddress,
+        ...taskForm
+      }));
     }
   };
 
@@ -203,7 +210,7 @@ const BasicContainer = () => {
             </tr>
           </thead>
           <tbody>
-            {unsolvedTasks.map((task) => (
+            {unsolvedTasks.map((task: any) => (
               <tr key={task.id}>
                 <td className="border px-4 py-2">{task.id}</td>
                 <td className="border px-4 py-2">
@@ -314,18 +321,21 @@ const BasicContainer = () => {
           <thead className="sticky top-0 bg-white">
             <tr className="bg-gray-100">
               <th className="border px-4 py-2 text-blue-600">ID</th>
+              <th className="border px-4 py-2 text-blue-600">Description</th>
               <th className="border px-4 py-2 text-blue-600">Type</th>
               <th className="border px-4 py-2 text-blue-600">Address</th>
               <th className="border px-4 py-2 text-blue-600">Owner</th>
               <th className="border px-4 py-2 text-blue-600">Source</th>
               <th className="border px-4 py-2 text-blue-600">Solved Times</th>
               <th className="border px-4 py-2 text-blue-600">Created At</th>
+              <th className="border px-4 py-2 text-blue-600">Unique ID</th>
             </tr>
           </thead>
           <tbody>
-            {agents.map((agent) => (
+            {agents.map((agent: any) => (
               <tr key={agent.id}>
                 <td className="border px-4 py-2">{agent.id}</td>
+                <td className="border px-4 py-2">{agent.description}</td>
                 <td className="border px-4 py-2">{agent.type.toUpperCase()}</td>
                 <td className="border px-4 py-2">
                   {agent.addr.slice(0, 6)}...{agent.addr.slice(-4)}
@@ -359,6 +369,7 @@ const BasicContainer = () => {
                 <td className="border px-4 py-2">
                   {new Date(agent.created_at).toLocaleDateString()}
                 </td>
+                <td className="border px-4 py-2">{agent.unique_id}</td>
               </tr>
             ))}
           </tbody>
