@@ -63,7 +63,7 @@ const BasicDataField = ({
         {value === "-" ? (
           <span className={valueClass}>{value}</span>
         ) : (
-          <FormatNumber valueClass={valueClass} value={value} {...props} />
+          <p>{value}</p>
         )}
       </div>
       {tooltip && tooltip !== null && (

@@ -11,19 +11,7 @@ const Footer = () => {
     >
       <footer className="sticky bottom-0 w-full max-w-360 mx-auto flex items-end justify-center gap-2 pb-5 px-4">
         {/* Do you think you really want to delete? */}
-        <span className="text-xl font-bold text-white">Powered by</span>
-        <Link
-          href="https://bucketprotocol.io/"
-          className="xl:hover:button-animate-105"
-        >
-          <Image
-            className="h-full"
-            src="/images/bucket-text-logo.svg"
-            alt="logo"
-            width={120}
-            height={32}
-          />
-        </Link>
+        <span className="text-xl font-bold text-white">Powered by DIMSUM AI Lab</span>
       </footer>
     </div>
   );
