@@ -1,18 +1,9 @@
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import { useContext, useState, useEffect } from "react";
-import { COIN } from "bucket-protocol-sdk";
-import { ConnectModal } from "@mysten/dapp-kit";
-import ConnectMenu from "./ui/connectMenu";
 import "@mysten/dapp-kit/dist/index.css";
-import { AppContext } from "@/context/AppContext";
-import { Link as LinkIcon } from "lucide-react";
 
 // import SlideInMenu from "./slideInMenu";
 // import RpcSetting from "./rpcSetting";
 
 const Header = () => {
-  const { walletAddress, suiName } = useContext(AppContext);
 
   return (
     <div
