@@ -10,7 +10,7 @@ export default function Tasks() {
   return (
     <main
       className={cn(
-        "relative w-full min-h-svh h-full max-w-360 flex flex-col items-center justify-center mx-auto py-5 px-4",
+        "relative w-full min-h-svh h-full max-w-360 flex flex-col items-center justify-center mx-auto py-5 px-4 bg-gray-800",
         inter.className
       )}
     >

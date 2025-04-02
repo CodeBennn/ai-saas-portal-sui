@@ -1,6 +1,8 @@
 import { cn } from "@/lib/utils";
 import SuiWalletProvider from "@/context/WalletContext";
 import { type AppType } from "next/dist/shared/lib/utils";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./theme";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import { Inter } from "next/font/google";
@@ -23,7 +25,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       {isClient ? (
         <QueryClientProvider client={queryClient}>
           <SuiWalletProvider>
@@ -52,7 +54,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
           <MetaTagsContainer />
         </div>
       )}
-    </>
+    </ThemeProvider>
   );
 };
 
