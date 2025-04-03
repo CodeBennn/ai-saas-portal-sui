@@ -190,17 +190,17 @@ const TasksContainer = () => {
         <div className="w-full grid grid-cols-3 gap-4 mb-4 text-nowrap">
           <BasicDataField
             label="Agent Alive"
-            value="3" // Replace with actual agent status
+            value="3" // TODO: Replace with actual agent status
             spaceWithUnit={false}
           />
           <BasicDataField
             label="Total Tasks"
-            value={(unsolvedTasks.length + 6).toString()} // Calculate total tasks as unsolved tasks + 6
+            value={(unsolvedTasks.length + 6).toString()} // TODO: Replace with actual
             spaceWithUnit={false}
           />
           <BasicDataField
             label="Unsolved Tasks"
-            value={unsolvedTasks.length.toString()} // Display actual count of unsolved tasks
+            value={unsolvedTasks.length.toString()} // TODO: Replace with actual
             spaceWithUnit={false}
           />
         </div>
