@@ -25,7 +25,7 @@ const BasicDataField = ({
   tooltip = undefined,
   value,
   valueClass = "text-2xl font-medium !leading-[110%] -tracking-[0.72px] text-white",
-  fieldClass = "w-fit",
+  fieldClass = "",
   ...props
 }: IBasicDataFieldProps) => {
   const screenWidth = useMeidaSize();

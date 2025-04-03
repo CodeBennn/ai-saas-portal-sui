@@ -193,15 +193,11 @@ const BasicContainer = () => {
         <center>
           <h3 className="text-3xl font-semibold mb-4">Data Panel</h3>
         </center>
-        <div className="w-full grid grid-cols-3 gap-4 mb-4 text-nowrap">
+        <div className="w-full grid grid-cols-2 gap-4 mb-2 text-nowrap">
+          {/* <div></div> */}
           <BasicDataField
             label="Agent Alive"
             value="3" // Replace with actual agent status
-            spaceWithUnit={false}
-          />
-          <BasicDataField
-            label="Total Tasks"
-            value={(unsolvedTasks.length + 6).toString()} // Calculate total tasks as unsolved tasks + 6
             spaceWithUnit={false}
           />
           <BasicDataField
