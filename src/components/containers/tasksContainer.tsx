@@ -139,45 +139,45 @@ const TasksContainer = () => {
     }
   };
 
-  async function handleTx() {
-    console.log(input);
-    const tx = new Transaction();
+  // async function handleTx() {
+  //   console.log(input);
+  //   const tx = new Transaction();
 
-    // PTB part
+  //   // PTB part
 
-    // Dry run
-    tx.setSender(account.address);
-    const dryRunRes = await client.dryRunTransactionBlock({
-      transactionBlock: await tx.build({ client }),
-    });
-    if (dryRunRes.effects.status.status === "failure") {
-      toast.error(dryRunRes.effects.status.error);
-      return;
-    }
+  //   // Dry run
+  //   tx.setSender(account.address);
+  //   const dryRunRes = await client.dryRunTransactionBlock({
+  //     transactionBlock: await tx.build({ client }),
+  //   });
+  //   if (dryRunRes.effects.status.status === "failure") {
+  //     toast.error(dryRunRes.effects.status.error);
+  //     return;
+  //   }
 
-    // Execute
-    signAndExecuteTransaction(
-      {
-        transaction: tx,
-      },
-      {
-        onSuccess: async (txRes) => {
-          const finalRes = await client.waitForTransaction({
-            digest: txRes.digest,
-            options: {
-              showEffects: true,
-            },
-          });
-          toast.success("Tx Success!");
-          console.log(finalRes);
-        },
-        onError: (err) => {
-          toast.error(err.message);
-          console.log(err);
-        },
-      }
-    );
-  }
+  //   // Execute
+  //   signAndExecuteTransaction(
+  //     {
+  //       transaction: tx,
+  //     },
+  //     {
+  //       onSuccess: async (txRes) => {
+  //         const finalRes = await client.waitForTransaction({
+  //           digest: txRes.digest,
+  //           options: {
+  //             showEffects: true,
+  //           },
+  //         });
+  //         toast.success("Tx Success!");
+  //         console.log(finalRes);
+  //       },
+  //       onError: (err) => {
+  //         toast.error(err.message);
+  //         console.log(err);
+  //       },
+  //     }
+  //   );
+  // }
 
   return (
     <div className="w-[100%] sm:w-[100%] md:w-[90%] lg:w-[80%] mt-20 overflow-y-auto flex flex-col items-center gap-4 p-0 lg:p-4">
