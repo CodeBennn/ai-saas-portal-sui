@@ -91,7 +91,7 @@ type CompletedCardProps = {
   prompt: string;
   fee: string;
   fee_unit: string;
-  created_at?: Date;
+  created_at?: any;
   unique_id?: string;
   solution?: string;
   solver_type?: string;
@@ -241,7 +241,7 @@ type AgentCardProps = {
   owner_addr: string;
   source_url: string;
   solved_times?: string;
-  created_at?: string;
+  created_at?: any;
   unique_id?: string;
 };
 
@@ -387,7 +387,7 @@ type CardProps = {
   prompt: string;
   fee: string;
   fee_unit: string;
-  created_at?: Date;
+  created_at?: any;
   unique_id?: string;
   solution?: string;
   solver_type?: string;
