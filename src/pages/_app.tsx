@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import SuiWalletProvider from "@/context/WalletContext";
 import { type AppType } from "next/dist/shared/lib/utils";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "./theme";
+import { createTheme } from "@mui/material/styles";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { useState, useEffect } from "react";
 import { Inter } from "next/font/google";
@@ -12,10 +12,18 @@ import { AppContextProvider } from "@/context/AppContext";
 import "@/styles/globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import MetaTagsContainer from "@/components/containers/metaTagsContainer";
+// import { theme } from "./theme";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const queryClient = new QueryClient();
+
+const MUItheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
+
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   const [isClient, setIsClient] = useState<boolean>(false);
@@ -25,7 +33,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={MUItheme}>
       {isClient ? (
         <QueryClientProvider client={queryClient}>
           <SuiWalletProvider>
