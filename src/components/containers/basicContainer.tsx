@@ -197,7 +197,7 @@ const BasicContainer = () => {
           {/* <div></div> */}
           <BasicDataField
             label="Agent Alive"
-            value="3" // Replace with actual agent status
+            value={agents.length.toString()}
             spaceWithUnit={false}
           />
           <BasicDataField
