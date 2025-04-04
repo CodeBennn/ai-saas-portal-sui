@@ -1,45 +1,4 @@
-﻿// import * as React from "react";
-// import Box from "@mui/material/Box";
-// import Card from "@mui/material/Card";
-// import CardActions from "@mui/material/CardActions";
-// import CardContent from "@mui/material/CardContent";
-// import Button from "@mui/material/Button";
-// import Typography from "@mui/material/Typography";
-
-// type CardProps = {
-//   id: string;
-//   user: string;
-//   task_type: string;
-//   prompt: string;
-//   fee: string;
-//   created_at?: string;
-//   unique_id?: string;
-//   solution?: string;
-//   solver_type?: string;
-// };
-// export default function BasicCard(card: CardProps) {
-//   return (
-//     <Card sx={{ minWidth: 275 }}>
-//       <CardContent>
-//         <Typography gutterBottom sx={{ color: "text.secondary", fontSize: 14 }}>
-//           {card.id}
-//         </Typography>
-//         <Typography variant="h5" component="div">
-//           {card.task_type}
-//         </Typography>
-//         <Typography sx={{ color: "text.secondary", mb: 1.5 }}>
-//           {card.user.slice(0, 6)}...{card.user.slice(-4)}
-//         </Typography>
-//         <Typography variant="body2">{card.prompt}</Typography>
-//         <Typography variant="body2">{card.fee}</Typography>
-//       </CardContent>
-//       <CardActions>
-//         <Button size="small">Learn More</Button>
-//       </CardActions>
-//     </Card>
-//   );
-// }
-import * as React from "react";
+﻿import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -127,7 +86,15 @@ function CompletedCard(card: CompletedCardProps) {
           </IconButton>
         }
         title={`ID: ${card.id}`}
-        subheader={new Date(card.created_at).toLocaleDateString()}
+        subheader={
+          <>
+            <p>{new Date(card.created_at).toLocaleDateString()}</p>
+            <div className="w-[12px] h-[12px] bg-green-500 rounded-full inline-block"></div>
+            <span style={{ fontSize: 12 }} className="t pl-1">
+              Resolved task
+            </span>
+          </>
+        }
       />
 
       {card.solution?.startsWith("data:image/png") ||
@@ -266,7 +233,15 @@ function AIAgentCard(agent: AgentCardProps) {
           </IconButton>
         }
         title={`ID: ${agent.id}`}
-        subheader={new Date(agent.created_at).toLocaleDateString()}
+        subheader={
+          <>
+            <p>{new Date(agent.created_at).toLocaleDateString()}</p>
+            <div className="w-[12px] h-[12px] bg-sky-600 rounded-full inline-block"></div>
+            <span style={{ fontSize: 12 }} className="t pl-1">
+              AI agent
+            </span>
+          </>
+        }
       />
       <CardContent>
         <Typography
@@ -414,7 +389,15 @@ function PendingCard(card: CardProps) {
           </IconButton>
         }
         title={`ID: ${card.id}`}
-        subheader={new Date(card.created_at).toLocaleDateString()}
+        subheader={
+          <>
+            <p>{new Date(card.created_at).toLocaleDateString()}</p>
+            <div className="w-[12px] h-[12px] bg-rose-500 rounded-full inline-block"></div>
+            <span style={{ fontSize: 12 }} className="t pl-1">
+              Unsolved task
+            </span>
+          </>
+        }
       />
       <CardContent>
         <Typography
