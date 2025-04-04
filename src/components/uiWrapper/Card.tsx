@@ -70,7 +70,8 @@ function CompletedCard(card: CompletedCardProps) {
         maxWidth: {
           xs: 350,
           md: 400,
-          lg: 600,
+          lg: 400,
+          xl: 400,
         },
       }}
     >
