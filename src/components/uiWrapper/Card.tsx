@@ -14,6 +14,11 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import ReactMarkdown from 'react-markdown';
+
+function MarkdownRenderer({ markdown }) {
+  return <ReactMarkdown>{markdown}</ReactMarkdown>;
+}
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -66,12 +71,11 @@ function CompletedCard(card: CompletedCardProps) {
   return (
     <Card
       sx={{
-        // maxWidth: 350,
         maxWidth: {
           xs: 350,
-          md: 400,
-          lg: 400,
-          xl: 400,
+          md: 600,
+          lg: 800,
+          xl: 900,
         },
       }}
     >
@@ -97,9 +101,14 @@ function CompletedCard(card: CompletedCardProps) {
           </>
         }
       />
-
+      <Typography
+        variant="body2"
+        sx={{ minHeight: 48, padding: 2,fontSize: 16, color: "text.secondary" }}
+      >
+        Task: {card.prompt}
+      </Typography>
       {card.solution?.startsWith("data:image/png") ||
-      card.solution?.startsWith("https://p.ipic.vip") ? (
+        card.solution?.startsWith("https://p.ipic.vip") ? (
         <CardMedia
           component="img"
           height="194"
@@ -111,17 +120,11 @@ function CompletedCard(card: CompletedCardProps) {
           variant="body2"
           sx={{ fontSize: 14, padding: 2, mt: 1, color: "text.primary" }}
         >
-          Solution: {card.solution}
+          Solution: <MarkdownRenderer markdown={card.solution} />
         </Typography>
       )}
 
       <CardContent>
-        <Typography
-          variant="body2"
-          sx={{ minHeight: 48, fontSize: 16, color: "text.secondary" }}
-        >
-          Task: {card.prompt}
-        </Typography>
         <Typography
           variant="body2"
           sx={{ fontSize: 14, mt: 1, color: "text.secondary" }}
