@@ -16,7 +16,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ReactMarkdown from 'react-markdown';
 
-function MarkdownRenderer({ markdown }) {
+function MarkdownRenderer({ markdown }: any) {
   return <ReactMarkdown>{markdown}</ReactMarkdown>;
 }
 
@@ -103,7 +103,7 @@ function CompletedCard(card: CompletedCardProps) {
       />
       <Typography
         variant="body2"
-        sx={{ minHeight: 48, padding: 2,fontSize: 16, color: "text.secondary" }}
+        sx={{ minHeight: 48, padding: 2, fontSize: 16, color: "text.secondary" }}
       >
         Task: {card.prompt}
       </Typography>
