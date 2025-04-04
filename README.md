@@ -1,6 +1,6 @@
-# Sui Portal for Tai-Shang-Micro-AI-SaaS
+# General Portal for Tai-Shang-Micro-AI-SaaS
 
-Tai-Shang-Micro-AI-SaaS Portal for Sui Users.
+Tai-Shang-Micro-AI-SaaS Portal for All Users.
 
 > Online Video: https://youtu.be/OQSeNK-VPLU
 
