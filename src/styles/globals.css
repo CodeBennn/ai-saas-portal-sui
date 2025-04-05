@@ -49,3 +49,7 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.MuiTypography-root pre{
+  overflow: auto;
+}

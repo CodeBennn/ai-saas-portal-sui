@@ -207,11 +207,11 @@ const TasksContainer = () => {
       </div>
       <h3 className="text-3xl font-semibold mb-4">All Tasks</h3>
 
-      <div className="columns-1 lg:columns-2 gap-4 space-y-4">
+      <div className="columns-1 gap-4 space-y-4">
         {unsolvedTasks.map((task: any) => (
           <div
             key={task.unique_id}
-            className="break-inside-avoid w-full "
+            className="break-inside-auto w-full"
           >
             <CompletedCard
               id={task?.id}
